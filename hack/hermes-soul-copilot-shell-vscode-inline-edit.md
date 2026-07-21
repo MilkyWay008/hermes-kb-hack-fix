@@ -110,7 +110,7 @@ VS Code has a built-in **Custom Endpoint** provider for bringing your own langua
       {
         "id": "hermes-agent",
         "name": "Tommy (hermes-agent)",
-        "url": "http://localhost:8643",
+        "url": "http://localhost:8642",
         "toolCalling": true,
         "vision": true,
         "maxInputTokens": 1000000,
