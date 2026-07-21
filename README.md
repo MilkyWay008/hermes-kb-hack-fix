@@ -36,6 +36,22 @@ hermes-kb-hack-fix/
 
 ---
 
+## Contents
+
+### fixes-windows/
+
+| Article | Description |
+|---------|-------------|
+| [msys2-c-root-phantom-path.md](fixes-windows/msys2-c-root-phantom-path.md) | **Three-layer fix for the MSYS2 phantom `C:\c\` path bug.** When Hermes runs in git-bash on Windows, POSIX paths like `/c/Projects` get misinterpreted as `C:\c\Projects` instead of `C:\Projects`. This fix uses MSYS2 env vars + a Deny-Write ACL guardrail + agent memory triggers to prevent lost files. Affects Hermes Desktop for Windows v0.19 and earlier. |
+
+### hack/
+
+| Article | Description |
+|---------|-------------|
+| [hermes-soul-copilot-shell-vscode-inline-edit.md](hack/hermes-soul-copilot-shell-vscode-inline-edit.md) | **Use Hermes Agent as VS Code's Copilot provider.** Hermes' API server exposes an OpenAI-compatible endpoint — configure it as Copilot's custom model to get inline editing PLUS the full Hermes agent toolchain. Includes the AGENTS.md counter-rules to strip Microsoft's Copilot system prompt constraints. |
+
+---
+
 ## Contributing
 
 Found a fix that worked for you? Open a PR. The goal is to build a shared knowledge base so the next person who hits the same wall doesn't spend hours figuring it out.
