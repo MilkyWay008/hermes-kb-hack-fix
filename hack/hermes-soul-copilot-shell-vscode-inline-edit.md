@@ -125,20 +125,25 @@ VS Code has a built-in **Custom Endpoint** provider for bringing your own langua
 
 5. Select **"Tommy (hermes-agent)"** from the model picker in the Chat view. If it doesn't appear immediately, restart VS Code.
 
-#### Step 3: Set Hermes as the Default Utility Model
+#### Step 3: Disable Checkpoints and Set Utility Model
 
-Once Hermes is available in the model picker, configure it as the default for background utility tasks (title generation, commit messages, intent detection):
+**Critical: Disable VS Code checkpoints first.** VS Code's checkpoint feature creates restore points every few turns. When enabled, each restore point spawns a **new Hermes session**, breaking continuity — the agent loses memory of what was done before, even though the chat UI looks like the same conversation.
 
 1. Open VS Code settings (`Ctrl+,`)
-2. Search for `chat.utilityModel`
-3. Set both:
+2. Search for `chat.checkpoints.enabled`
+3. **Uncheck** the setting (set to `false`)
+
+Without this step, session continuity is broken. Every checkpoint resets the Hermes session and the agent loses context.
+
+Once checkpoints are disabled, configure Hermes as the default for chat and utility tasks:
+
+1. In VS Code settings, search for `chat.utilityModel`
+2. Set both:
 
 | Setting | Value |
 |---------|-------|
 | `chat.utilityModel` | `hermes-agent` |
 | `chat.utilitySmallModel` | `hermes-agent` |
-
-This ensures Hermes handles not just chat, but also the background tasks VS Code runs under the hood.
 
 #### Step 4: Verify
 
@@ -223,13 +228,21 @@ AGENTS.md loads automatically in both Hermes Desktop and Copilot Shell environme
 
 ## Session Continuity
 
-Within one Copilot chat, the Hermes API server maintains a **single persistent session**:
+Within one Copilot chat, the Hermes API server maintains a **single persistent session** — **but only if VS Code checkpoints are disabled** (see Step 3).
 
 - Each chat derives a deterministic session ID from a hash of the system prompt + first user message
 - As long as the system prompt stays stable, all turns in one Copilot chat map to one Hermes session
 - Full tool context, memory, and conversation history flow naturally
 
-If you start a new Copilot chat (`+ New Chat`), you get a new Hermes session. Context from the old chat is gone — use handoff docs for multi-phase workflows.
+### ⚠️ The Checkpoint Trap
+
+VS Code's **checkpoint feature** (`chat.checkpoints.enabled`) creates restore points every few turns. This is useful for undoing mistakes, but it has a critical side effect: **each checkpoint spawns a new Hermes session.**
+
+From the user's perspective, the chat UI looks continuous — same window, same conversation. But behind the scenes, Hermes sees a brand new session with no memory of the previous turns. The agent loses all context, tool results, and work-in-progress.
+
+**Always disable checkpoints** before starting a long coding session with Hermes in the Copilot shell. If you forget and find the agent has "forgotten" mid-conversation, check whether checkpoints are enabled.
+
+If you start a new Copilot chat (`+ New Chat`), you get a new Hermes session regardless. Context from the old chat is gone — use handoff docs for multi-phase workflows.
 
 ### What Carries Over From Hermes Desktop
 
