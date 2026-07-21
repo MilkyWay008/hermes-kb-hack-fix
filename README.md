@@ -1,6 +1,6 @@
 # Hermes KB, Hack & Fix
 
-**Author:** Ringo / MilkyWay008  
+**Author:** MilkyWay008  
 **License:** MIT  
 **Repository:** [github.com/MilkyWay008/hermes-kb-hack-fix](https://github.com/MilkyWay008/hermes-kb-hack-fix)
 

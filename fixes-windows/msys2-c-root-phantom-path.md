@@ -1,6 +1,6 @@
 # Hermes on Windows: Fixing the MSYS2 Phantom `C:\c\` Path Bug
 
-**Author:** Ringo / MilkyWay008  
+**Author:** MilkyWay008  
 **Date:** 2026-07-21  
 **Affects:** Hermes Agent v0.19 and earlier — Windows Desktop App users  
 **Status:** Active workaround (partial fix + guardrails)
