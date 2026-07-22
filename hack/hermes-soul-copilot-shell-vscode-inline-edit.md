@@ -333,6 +333,18 @@ Trading agents like TradingAgents and FinceptTerminal can integrate Hermes as th
 ### OpenClaw with a Hermes Soul
 [OpenClaw](https://github.com/OpenClaw/OpenClaw) is a multi-platform agent architecture. Feed it Hermes as the LLM backend, and you get the best of both worlds: OpenClaw's channel orchestration with Hermes' stateful memory and full toolchain.
 
+### Microsoft 365: Hermes INLINE EDITING in Office + Copilot Studio + Power Platform
+
+Microsoft recently made **Custom Engine Agents** Generally Available for Microsoft 365 Copilot — meaning you can bring your own agent (any framework, any orchestrator, any model) directly into Word, Excel, Outlook, Teams, and Power Platform as a native experience.
+
+How Hermes fits into this ecosystem:
+
+- **[Microsoft 365 Custom Engine Agents](https://devblogs.microsoft.com/microsoft365dev/bring-your-own-agents-into-microsoft-365-copilot/)** — The Microsoft 365 Agents Toolkit (VS Code) + Agents SDK lets you build and publish agents to the M365 Agent Store. Your Hermes API server becomes the backend. Users install your agent from the store and interact with it inside Teams, Outlook, Word, and the entire M365 suite.
+- **[Copilot Studio Bring Your Own Model](https://learn.microsoft.com/en-us/microsoft-copilot-studio/bring-your-own-model-prompts)** — Copilot Studio now supports connecting custom models from Azure AI Foundry for prompts. Since Hermes exposes an OpenAI-compatible endpoint, it can be registered as a custom model in Azure AI Foundry and used across Copilot Studio, Power Apps, and Power Automate.
+- **Power Automate + Power Apps** — The same model connection feeds into the Power Platform, giving your Hermes agent access to enterprise workflows, forms, approvals, and data pipelines.
+
+Imagine your Hermes agent, with its persistent memory and full toolchain, drafting documents in Word, responding to emails in Outlook, analyzing spreadsheets in Excel, running automation in Power Automate — all while maintaining the same cross-session memory and agent capabilities it has in VS Code. The "Copilot Shell" concept extends from the code editor to the entire Office ecosystem.
+
 ### Monetization: Ad-Supported Inference
 The Hermes API endpoint can serve as the backend for a free or low-cost inference service. The agent handles requests normally, but when a query relates to search or commercial intent, it can inject relevant advertising context — all within its tool loop. The user gets free inference. Advertisers pay for reach. Your Hermes instance becomes the product.
 
