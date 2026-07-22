@@ -33,7 +33,7 @@ The result: **Copilot is the shell. Hermes is the soul.**
 - Hermes provides the engine: persistent memory, tools, MCP, subagents, skills, terminals
 - You get inline editing *plus* the full agent toolchain in one window
 
-This is documented in the official Hermes Agent guides:
+The Hermes API server feature (the OpenAI-compatible endpoint that makes all of this possible) is documented in the official Hermes Agent guides:
 - [Nous Research: Open WebUI Integration](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/open-webui)
 - [Open WebUI: Connecting Hermes Agent](https://docs.openwebui.com/getting-started/quick-start/connect-an-agent/hermes-agent)
 
