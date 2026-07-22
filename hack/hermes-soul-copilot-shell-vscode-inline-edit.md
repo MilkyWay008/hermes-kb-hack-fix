@@ -366,6 +366,10 @@ Hermes API Server ← Your agent, your memory, your tools
 
 The "Hermes Soul, [Shell] Body" pattern is a universal architecture. VS Code Copilot is just one shell. The potential — agentic, creative, and commercial — is enormous, and most people haven't begun to explore it.
 
+What's missing is someone connecting the dots and saying: *"Wait — if I put Hermes behind this one API, I can stick it in ANYTHING."* The same agent that debugs your code can draft your documents, manage your trades, animate your avatar, and power your inference service. Same memory. Same tools. Same skills. Different shells.
+
+Most people are still thinking in terms of "which AI tool should I use for X." But the killer play is **"one agent, infinite interfaces."** That's the real difference.
+
 ---
 
 ## Resources
