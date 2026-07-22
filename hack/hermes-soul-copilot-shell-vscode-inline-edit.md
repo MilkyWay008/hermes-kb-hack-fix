@@ -39,6 +39,27 @@ This is documented in the official Hermes Agent guides:
 
 ---
 
+## ⚠️ What This Is NOT — And Why It Matters
+
+This method is **NOT** the ACP agent integration that adds Hermes as a chat panel inside VS Code. They are fundamentally different:
+
+| Aspect | ACP Agent (Messaging Channel) | **This Method (Copilot Replacement)** |
+|--------|-------------------------------|----------------------------------------|
+| **What it does** | Adds Hermes as a chat provider in the side panel | **Replaces GitHub Copilot entirely** |
+| **Inline editing** | ❌ Cannot edit your code inline | ✅ Full tab-to-accept inline editing |
+| **Edit suggestions** | ❌ No inline suggestions or code lens | ✅ Native Copilot edit workflow |
+| **Chat panel** | ✅ Separate chat view | ✅ Same Copilot chat, but Hermes-powered |
+| **Agent toolchain** | ✅ Full Hermes tools | ✅ Full Hermes tools |
+| **Works like** | Chatting through Telegram inside VS Code | **Copilot itself becomes Hermes** |
+
+**If you want a messaging channel inside VS Code**, the ACP agent integration is the right choice. It works well for code review, asking questions, and getting explanations.
+
+**If you want inline editing** — tab-to-accept suggestions, inline diff previews, multi-line edits directly in your code — **this method is the only way.** It doesn't add Hermes *alongside* Copilot; it **replaces** Copilot with Hermes entirely. Every part of the Copilot interface (chat, inline, agent mode) routes through your agent instead.
+
+Think of it as: Copilot was wearing the uniform, but now Hermes is wearing it. The uniform does the same job — inline editing — but the brain behind it is entirely different.
+
+---
+
 ## How It Works
 
 ### Architecture
