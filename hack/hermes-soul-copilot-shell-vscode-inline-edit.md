@@ -1,4 +1,4 @@
-# Hermes Soul, Copilot Shell: Agent-Powered VS Code Inline Editing
+# Hermes Soul, Copilot Shell: INLINE EDITING in VS Code with Your Hermes Agent
 
 **Author:** MilkyWay008  
 **Date:** 2026-07-21  
