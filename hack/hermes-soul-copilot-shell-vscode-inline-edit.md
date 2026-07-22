@@ -3,7 +3,7 @@
 **Author:** MilkyWay008  
 **Date:** 2026-07-21  
 **Category:** Hack  
-**Requires:** Hermes Agent v0.19+ (API server feature)
+**Requires:** Hermes Agent v0.16+ (API server feature)
 
 ---
 
@@ -285,6 +285,53 @@ However, it works reliably enough for daily development and has been tested with
 - Multi-file code reviews
 - Full debug workflows (subagents, browser, ducks)
 - Continuous session across hours of back-and-forth
+
+---
+
+## Beyond VS Code: The Hermes Soul Pattern
+
+What you've just set up — Hermes' API server as an OpenAI-compatible endpoint — is **not just about VS Code**. This pattern unlocks something much bigger.
+
+Hermes exposes a **stateful, tool-equipped agent** through a standard OpenAI-compatible API. Any application that accepts a custom LLM endpoint can host your Hermes agent instead. The "Hermes Soul" pattern means: wherever there's a shell that takes an OpenAI-compatible model, you can drop in your agent — complete with memory, tools, MCP servers, subagents, and skills.
+
+Here are just a few examples of what this enables:
+
+### Animated LLM Avatars
+Projects like Open-LLM-VTuber and Airi create 2D/3D animated avatars that accept custom LLM endpoints. Point them at Hermes, and your agent becomes a living, talking animated character with full tool access — not just a chat bubble.
+
+- [Open-LLM-VTuber](https://github.com/Open-LLM-VTuber/Open-LLM-VTuber)
+- [Airi](https://github.com/moeru-ai/airi)
+- [LLM-Based 3D Avatar Assistant](https://github.com/NeuralHarbour/LLM-Based-3D-Avatar-Assistant)
+
+### Agentic Trading Systems
+Trading agents like TradingAgents and FinceptTerminal can integrate Hermes as their LLM backend. Your Hermes agent brings persistent memory of market context, tool execution for data analysis, and cross-session continuity — far beyond what a stateless LLM provides.
+
+- [TradingAgents](https://github.com/TauricResearch/TradingAgents)
+- [FinceptTerminal](https://github.com/Fincept-Corporation/FinceptTerminal)
+
+### OpenClaw with a Hermes Soul
+[OpenClaw](https://github.com/OpenClaw/OpenClaw) is a multi-platform agent architecture. Feed it Hermes as the LLM backend, and you get the best of both worlds: OpenClaw's channel orchestration with Hermes' stateful memory and full toolchain.
+
+### Monetization: Ad-Supported Inference
+The Hermes API endpoint can serve as the backend for a free or low-cost inference service. The agent handles requests normally, but when a query relates to search or commercial intent, it can inject relevant advertising context — all within its tool loop. The user gets free inference. Advertisers pay for reach. Your Hermes instance becomes the product.
+
+### The Pattern
+
+```
+Any OpenAI-Compatible Shell (avatar, trading bot, OpenClaw, custom UI, etc.)
+    │  POST /v1/chat/completions
+    │  Model: hermes-agent
+    ▼
+Hermes API Server ← Your agent, your memory, your tools
+    │
+    ├── Tools (terminal, files, web, code)
+    ├── MCP Servers (database, APIs, custom)
+    ├── Subagents (parallel task execution)
+    ├── Memory (cross-session, persistent)
+    └── Skills (your custom workflows)
+```
+
+The "Hermes Soul, [Shell] Body" pattern is a universal architecture. VS Code Copilot is just one shell. The potential — agentic, creative, and commercial — is enormous, and most people haven't begun to explore it.
 
 ---
 
